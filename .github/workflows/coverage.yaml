@@ -3,7 +3,7 @@ on:
   push:
     branches: [main]
   pull_requests:
-    type: [opened,reopened,synchronize]
+    type: [opened,reopened,synchronize,labeled,unlabeled]
   workflow_dispatch:
 jobs:
   coverage-report:
