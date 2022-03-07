@@ -10,12 +10,13 @@ on:
       - 'release/**'
       - '!dev/**'
   pull_requests:
-    type: [opened,reopened,synchronize,labeled, unlabeled]
+    type: [opened,reopened,synchronize]
   workflow_dispatch:
 jobs:
   say-hello:
     runs-on: ubuntu-latest
     steps:
+      - if: ${{github.event_name == 'pull_requests'}}
       - uses: mheap/github-action-required-labels@v1
         with:
           mode: exactly
